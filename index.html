@@ -1,44 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exclusive Lenders List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Bank List - Exclusive Access</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    body, html {
       margin: 0;
       padding: 0;
-      background: #f5f7fa;
-      color: #222;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-bg iframe {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      height: 100%;
       text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.4);
     }
+
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px black;
     }
-    p {
-      font-size: 1.1rem;
-      max-width: 500px;
-      margin: 0 auto 2rem;
-      line-height: 1.4;
-    }
-    .buy-button {
-      margin-top: 1rem;
+
+    stripe-buy-button {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Exclusive List of Banks & Credit Unions Lending Now</h1>
-  <p>Get instant access to our carefully researched list of banks and credit unions currently offering funding. Updated regularly with the latest lending opportunities.</p>
+  <!-- Background YouTube Video -->
+  <div class="video-bg">
+    <iframe src="https://www.youtube.com/embed/nDxNCyJSCY8?autoplay=1&mute=1&loop=1&playlist=nDxNCyJSCY8&controls=0&showinfo=0&modestbranding=1"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-  <div class="buy-button">
+  <!-- Foreground Content -->
+  <div class="content">
+    <h1>Get the Hidden Bank List</h1>
+    <p>Exclusive access to banks & credit unions lending right now.</p>
+    
+    <!-- Stripe Buy Button -->
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <stripe-buy-button
       buy-button-id="buy_btn_1RtyADLYdA3Tb1rSwUICdWJm"
