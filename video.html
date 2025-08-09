@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BGIG LLC — Exclusive Video</title>
+<meta name="description" content="Watch the BGIG LLC intro. Get funded fast with our lender list and LLC package.">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;overflow:hidden;background:#0a0b0f;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#efeaf8}
+
+  /* full-screen video container */
+  .bg{position:fixed;inset:0;z-index:-2}
+  .bg iframe{width:100%;height:100%;border:0;display:block}
+  .overlay{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(70% 90% at 50% 0%, rgba(255,105,180,.22), rgba(0,0,0,.60)),
+      linear-gradient(180deg, rgba(10,11,15,.25), rgba(10,11,15,.85) 65%);
+  }
+
+  /* minimal header with luxe logo */
+  .wrap{position:relative;z-index:1;padding:18px}
+  .header{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#f2e9cd;font-weight:900}
+  .logo{width:40px;height:40px;flex:0 0 40px}
+  .logo svg{display:block}
+
+  /* bottom CTA */
+  .cta{position:fixed;left:0;right:0;bottom:34px;display:flex;justify-content:center;z-index:1}
+  .btn{
+    background:linear-gradient(145deg,#ff76b1,#f5dea3);
+    color:#0a0b0f; padding:14px 24px; border-radius:999px; font-weight:900; font-size:18px;
+    box-shadow:0 12px 36px rgba(255,118,177,.55); text-decoration:none; transition:.15s transform,.2s box-shadow
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 16px 44px rgba(255,118,177,.65)}
+</style>
+</head>
+<body>
+
+<!-- full-screen YouTube (muted so autoplay works on mobile) -->
+<div class="bg">
+  <iframe
+    src="https://www.youtube.com/embed/nDxNCyJSCY8?autoplay=1&mute=1&loop=1&playlist=nDxNCyJSCY8&playsinline=1&controls=0&modestbranding=1&rel=0"
+    title="BGIG LLC Intro" allow="autoplay; fullscreen" allowfullscreen>
+  </iframe>
+</div>
+<div class="overlay"></div>
+
+<div class="wrap">
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="BGIG LLC Home">
+      <!-- luxe inline SVG logo -->
+      <span class="logo">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="gPink" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#ff8fc6" stop-opacity=".55"/><stop offset="70%" stop-color="#ff8fc6" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#b9922e"/><stop offset="100%" stop-color="#f5dea3"/>
+            </linearGradient>
+            <linearGradient id="gInner" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#12131a"/><stop offset="100%" stop-color="#0a0b0f"/>
+            </linearGradient>
+          </defs>
+          <circle cx="60" cy="60" r="58" fill="url(#gPink)"/>
+          <circle cx="60" cy="60" r="48" fill="url(#gInner)" stroke="url(#gGold)" stroke-width="3"/>
+          <g fill="none" stroke="url(#gGold)" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M38 48c4-8 18-12 30-8 6 2 8 6 4 10-6 6-26 4-28 14-2 8 12 12 24 8" stroke-width="6"/>
+            <path d="M74 40v38h20" stroke-width="6"/>
+          </g>
+        </svg>
+      </span>
+      <span>BGIG LLC</span>
+    </a>
+  </header>
+</div>
+
+<!-- bottom CTA back to offers -->
+<div class="cta">
+  <a class="btn" href="index.html">Go to Offers</a>
+</div>
+
+</body>
+</html>
