@@ -1,82 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hidden Bank List - Exclusive Access</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background-color: black;
-    }
-
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .video-bg iframe {
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-      color: white;
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 5px black;
-    }
-
-    stripe-buy-button {
-      margin-top: 20px;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Secret Lenders — Two Offers, One Page</title>
+  <meta name="description" content="Get the premium lender list or grab the full LLC + website + funding package.">
+  <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <a class="brand" href="#">
+        <span class="brand-mark"></span>
+        <span class="brand-name">Secret Lenders</span>
+      </a>
+    </header>
 
-  <!-- Background YouTube Video -->
-  <div class="video-bg">
-    <iframe src="https://www.youtube.com/embed/nDxNCyJSCY8?autoplay=1&mute=1&loop=1&playlist=nDxNCyJSCY8&controls=0&showinfo=0&modestbranding=1"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
+    <main class="hero">
+      <div class="video-hero">
+        <!-- Autoplaying, muted video for forced attention -->
+        <video autoplay muted loop playsinline preload="auto" src="./assets/hero.mp4"></video>
+        <div class="overlay"></div>
+      </div>
+
+      <div class="hero-copy">
+        <span class="h-tag">Curated • Fast • Confidential</span>
+        <h1><span class="shimmer">Get Approved Faster</span> — pick your path and go.</h1>
+        <p class="lead">Minimal distractions. Premium results. Choose your offer below and checkout in seconds.</p>
+      </div>
+
+      <section class="offers">
+        <!-- $99 OFFER CARD -->
+        <article class="card">
+          <h3>Premium Lender List</h3>
+          <div class="price">
+            <span class="amount">$99</span>
+            <span class="unit">one-time</span>
+          </div>
+          <ul class="ul">
+            <li>Current banks & credit unions lending now</li>
+            <li>Contact paths + quick-apply tips</li>
+            <li>Instant access, updates included</li>
+          </ul>
+          <div class="cta">
+            <!-- Change this link to your Stripe Payment Link when ready -->
+            <a class="btn" href="https://tin.al/Secretlenders" target="_blank" rel="noopener">Buy Premium List</a>
+            <span class="badge"><span class="dot"></span> Limited spots</span>
+          </div>
+        </article>
+
+        <!-- $319 OFFER CARD WITH STRIPE BUY BUTTON -->
+        <article class="card">
+          <h3>LLC + Website + Virtual Address + Phone + Funding</h3>
+          <div class="price">
+            <span class="amount">$319</span>
+            <span class="unit">one-time</span>
+          </div>
+          <ul class="ul">
+            <li>We set up your LLC or C-Corp</li>
+            <li>Business website + virtual address & phone</li>
+            <li>Funding playbook — lenders that say “yes”</li>
+          </ul>
+          <div class="cta" style="flex-direction: column; align-items: flex-start;">
+            <!-- Stripe Buy Button -->
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1RuJneLYdA3Tb1rS5W0imnya"
+              publishable-key="pk_live_51N0Am3LYdA3Tb1rSzBOsqKR4MBylqQiD3hNk9dFDVZwknd5mA9yD2UXJCgSICIUCZS2OO8O4f1AxZ4UBN0rt4AYs00VQoUSgEd">
+            </stripe-buy-button>
+            <span class="badge" style="margin-top:10px;"><span class="dot"></span> Limited spots</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="small">Encrypted checkout • No spam • Mobile-first</div>
+    </footer>
   </div>
-
-  <!-- Foreground Content -->
-  <div class="content">
-    <h1>Get the Hidden Bank List</h1>
-    <p>Exclusive access to banks & credit unions lending right now.</p>
-    
-    <!-- Stripe Buy Button -->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-    <stripe-buy-button
-      buy-button-id="buy_btn_1RtyADLYdA3Tb1rSwUICdWJm"
-      publishable-key="pk_live_51N0Am3LYdA3Tb1rSzBOsqKR4MBylqQiD3hNk9dFDVZwknd5mA9yD2UXJCgSICIUCZS2OO8O4f1AxZ4UBN0rt4AYs00VQoUSgEd">
-    </stripe-buy-button>
-  </div>
-
 </body>
 </html>
