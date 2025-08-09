@@ -1,82 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Secret Lenders — Two Offers, One Page</title>
-  <meta name="description" content="Get the premium lender list or grab the full LLC + website + funding package.">
-  <link rel="stylesheet" href="./assets/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Secret Lenders — Premium Access</title>
+<meta name="description" content="Get the lender list or the full LLC + website + funding package." />
+<style>
+  /* ===== Base ===== */
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+    background:#0a0b0f; color:#efeaf8; line-height:1.6;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  a{color:inherit;text-decoration:none}
+
+  /* ===== Fullscreen video background ===== */
+  .bg-video{
+    position:fixed; inset:0; width:100%; height:100%;
+    object-fit:cover; z-index:-2;
+  }
+  .bg-overlay{
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(70% 90% at 50% 0%, rgba(255,105,180,.18), rgba(0,0,0,.6)),
+      linear-gradient(180deg, rgba(10,11,15,.25), rgba(10,11,15,.85) 65%);
+  }
+
+  /* ===== Layout ===== */
+  .wrap{max-width:1120px;margin:0 auto;padding:22px}
+  .header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:8px 0 18px; position:sticky;top:0;backdrop-filter:blur(8px);
+  }
+  .brand{display:inline-flex;align-items:center;gap:12px}
+  .mark{
+    width:42px;height:42px;border-radius:11px;
+    background:
+      radial-gradient(180px 120px at 30% 20%, rgba(255,116,172,.45), transparent 60%),
+      linear-gradient(145deg,#b9922e,#f5dea3);
+    box-shadow:0 10px 30px rgba(249,220,140,.35), inset 0 2px 6px rgba(255,255,255,.35);
+  }
+  .brandname{color:#f2e9cd;font-weight:800;letter-spacing:.3px;font-size:18px}
+
+  /* ===== Hero ===== */
+  .hero{display:grid;place-items:center;min-height:70vh;text-align:center}
+  .h-tag{
+    display:inline-flex;gap:8px;padding:6px 12px;border-radius:999px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    color:#f2e9cd; font-size:12px; letter-spacing:.4px; backdrop-filter:blur(6px);
+  }
+  h1{
+    margin:14px 0 8px;
+    font-size:clamp(30px,5vw,64px); line-height:1.05; color:#fff6dc;
+    text-shadow:0 14px 60px rgba(0,0,0,.6);
+  }
+  .shimmer{
+    background:linear-gradient(90deg,#ff76b1,#fff,#e9d79f);
+    background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 2.6s linear infinite;
+  }
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .lead{color:#eadfd2;opacity:.95;font-size:clamp(15px,2vw,18px)}
+
+  /* ===== Offers ===== */
+  .offers{margin:22px auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:900px){.offers{grid-template-columns:1fr}}
+  .card{
+    padding:18px;border-radius:16px;
+    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 16px 48px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .card h3{color:#f7eac1;font-size:20px;margin-bottom:6px}
+  .price{display:inline-flex;gap:6px;align-items:baseline;margin:4px 0 10px}
+  .amount{font-weight:900;font-size:34px;color:#f2e9cd;text-shadow:0 6px 30px rgba(249,220,140,.25)}
+  .unit{font-size:13px;color:#d7cfb0;opacity:.9}
+  .ul{margin:8px 0 14px;padding-left:18px;color:#d8d3bd;font-size:15px}
+  .ul li{margin:6px 0}
+  .badge{margin-top:10px;font-size:12px;color:#f2e9cd;opacity:.9;display:inline-flex;gap:6px;align-items:center}
+  .dot{width:6px;height:6px;border-radius:999px;background:#ff76b1;box-shadow:0 0 10px #ff76b1}
+
+  /* ===== Footer ===== */
+  .footer{color:#bdb8a3;font-size:12px;text-align:center;margin:28px 0 10px;opacity:.9}
+</style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- Forced FULLSCREEN background video -->
+  <video class="bg-video" autoplay muted loop playsinline preload="auto" src="./assets/hero.mp4"></video>
+  <div class="bg-overlay"></div>
+
+  <div class="wrap">
     <header class="header">
       <a class="brand" href="#">
-        <span class="brand-mark"></span>
-        <span class="brand-name">Secret Lenders</span>
+        <span class="mark"></span>
+        <span class="brandname">Secret Lenders</span>
       </a>
     </header>
 
-    <main class="hero">
-      <div class="video-hero">
-        <!-- Autoplaying, muted video for forced attention -->
-        <video autoplay muted loop playsinline preload="auto" src="./assets/hero.mp4"></video>
-        <div class="overlay"></div>
-      </div>
+    <!-- HERO -->
+    <section class="hero">
+      <span class="h-tag">Curated • Fast • Confidential</span>
+      <h1><span class="shimmer">Get Approved Faster</span> — pick your path and go.</h1>
+      <p class="lead">Minimal distractions. Premium results. Choose your offer below and checkout in seconds.</p>
+    </section>
 
-      <div class="hero-copy">
-        <span class="h-tag">Curated • Fast • Confidential</span>
-        <h1><span class="shimmer">Get Approved Faster</span> — pick your path and go.</h1>
-        <p class="lead">Minimal distractions. Premium results. Choose your offer below and checkout in seconds.</p>
-      </div>
+    <!-- OFFERS -->
+    <section class="offers">
+      <!-- $99 -->
+      <article class="card">
+        <h3>Premium Lender List</h3>
+        <div class="price">
+          <span class="amount">$99</span><span class="unit">one-time</span>
+        </div>
+        <ul class="ul">
+          <li>Current banks & credit unions lending now</li>
+          <li>Contact paths + quick-apply tips</li>
+          <li>Instant access, updates included</li>
+        </ul>
+        <!-- Stripe Buy Button for $99 -->
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1RtyADLYdA3Tb1rSwUICdWJm"
+          publishable-key="pk_live_51N0Am3LYdA3Tb1rSzBOsqKR4MBylqQiD3hNk9dFDVZwknd5mA9yD2UXJCgSICIUCZS2OO8O4f1AxZ4UBN0rt4AYs00VQoUSgEd">
+        </stripe-buy-button>
+        <span class="badge"><span class="dot"></span> Limited spots</span>
+      </article>
 
-      <section class="offers">
-        <!-- $99 OFFER CARD -->
-        <article class="card">
-          <h3>Premium Lender List</h3>
-          <div class="price">
-            <span class="amount">$99</span>
-            <span class="unit">one-time</span>
-          </div>
-          <ul class="ul">
-            <li>Current banks & credit unions lending now</li>
-            <li>Contact paths + quick-apply tips</li>
-            <li>Instant access, updates included</li>
-          </ul>
-          <div class="cta">
-            <!-- Change this link to your Stripe Payment Link when ready -->
-            <a class="btn" href="https://tin.al/Secretlenders" target="_blank" rel="noopener">Buy Premium List</a>
-            <span class="badge"><span class="dot"></span> Limited spots</span>
-          </div>
-        </article>
+      <!-- $319 -->
+      <article class="card">
+        <h3>LLC + Website + Virtual Address + Phone + Funding</h3>
+        <div class="price">
+          <span class="amount">$319</span><span class="unit">one-time</span>
+        </div>
+        <ul class="ul">
+          <li>We set up your LLC or C-Corp</li>
+          <li>Business website + virtual address & phone</li>
+          <li>Funding playbook — lenders that say “yes”</li>
+        </ul>
+        <!-- Stripe Buy Button for $319 -->
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1RuJneLYdA3Tb1rS5W0imnya"
+          publishable-key="pk_live_51N0Am3LYdA3Tb1rSzBOsqKR4MBylqQiD3hNk9dFDVZwknd5mA9yD2UXJCgSICIUCZS2OO8O4f1AxZ4UBN0rt4AYs00VQoUSgEd">
+        </stripe-buy-button>
+        <span class="badge"><span class="dot"></span> Limited spots</span>
+      </article>
+    </section>
 
-        <!-- $319 OFFER CARD WITH STRIPE BUY BUTTON -->
-        <article class="card">
-          <h3>LLC + Website + Virtual Address + Phone + Funding</h3>
-          <div class="price">
-            <span class="amount">$319</span>
-            <span class="unit">one-time</span>
-          </div>
-          <ul class="ul">
-            <li>We set up your LLC or C-Corp</li>
-            <li>Business website + virtual address & phone</li>
-            <li>Funding playbook — lenders that say “yes”</li>
-          </ul>
-          <div class="cta" style="flex-direction: column; align-items: flex-start;">
-            <!-- Stripe Buy Button -->
-            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-            <stripe-buy-button
-              buy-button-id="buy_btn_1RuJneLYdA3Tb1rS5W0imnya"
-              publishable-key="pk_live_51N0Am3LYdA3Tb1rSzBOsqKR4MBylqQiD3hNk9dFDVZwknd5mA9yD2UXJCgSICIUCZS2OO8O4f1AxZ4UBN0rt4AYs00VQoUSgEd">
-            </stripe-buy-button>
-            <span class="badge" style="margin-top:10px;"><span class="dot"></span> Limited spots</span>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="small">Encrypted checkout • No spam • Mobile-first</div>
-    </footer>
+    <footer class="footer">Encrypted checkout • No spam • Mobile-first</footer>
   </div>
 </body>
 </html>
